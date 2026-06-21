@@ -34,9 +34,9 @@ Cập nhật thông tin nhân viên.
 Xóa nhân viên khỏi hệ thống.
 
 
-Thành viên: Đinh Xuân Thạch.
-Đối tượng phụ trách.
-ITEM.
+# Thành viên: Đinh Xuân Thạch.
+# Đối tượng phụ trách.
+# ITEM.
 
 ## Chức năng đã thực hiện
 
