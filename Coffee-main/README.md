@@ -32,9 +32,9 @@ Xem danh sách nhân viên.
 Xem chi tiết nhân viên theo mã nhân viên.
 Cập nhật thông tin nhân viên.
 Xóa nhân viên khỏi hệ thống.
+```
 
-
- # Thành viên: Đinh Xuân Thạch
+ # Thành viên: Đinh Xuân Thạch.
  
  # Đối tượng phụ trách
  ITEM
@@ -84,6 +84,7 @@ Các chức năng đã triển khai:
 * Xem chi tiết sản phẩm theo mã sản phẩm.
 * Cập nhật thông tin sản phẩm.
 * Xóa sản phẩm khỏi hệ thống.
+```
 
 # Thành viên: Đinh Văn Toàn
 
