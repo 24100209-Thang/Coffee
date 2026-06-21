@@ -12,7 +12,7 @@ Update Employee:PUT /api/employees/
 Delete Employee: DELETE /api/employees/
 
 # Cấu trúc source code
-
+```text
 src/
 ├── controllers/
 │ └── employee.controller.js
@@ -22,7 +22,7 @@ src/
 │ └── employee.repository.js
 └── routes/
 └── employee.routes.js
-
+```
 # Mô tả: Đối tượng Employee dùng để quản lý thông tin nhân viên trong hệ thống Coffee Shop.
 
 Các chức năng đã triển khai:
