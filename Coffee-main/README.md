@@ -34,8 +34,9 @@ Cập nhật thông tin nhân viên.
 Xóa nhân viên khỏi hệ thống.
 
 
- Thành viên: Đinh Xuân Thạch
- Đối tượng phụ trách
+ # Thành viên: Đinh Xuân Thạch
+ 
+ # Đối tượng phụ trách
  ITEM
 
 ## Chức năng đã thực hiện
@@ -84,8 +85,9 @@ Các chức năng đã triển khai:
 * Cập nhật thông tin sản phẩm.
 * Xóa sản phẩm khỏi hệ thống.
 
-Thành viên: Đinh Văn Toàn
-Đối tượng phụ trách
+# Thành viên: Đinh Văn Toàn
+
+# Đối tượng phụ trách
 CUSTOMER
 
 # Chức năng đã thực hiện
