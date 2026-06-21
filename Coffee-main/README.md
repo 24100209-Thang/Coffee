@@ -32,3 +32,54 @@ Xem danh sách nhân viên.
 Xem chi tiết nhân viên theo mã nhân viên.
 Cập nhật thông tin nhân viên.
 Xóa nhân viên khỏi hệ thống.
+
+Thành viên: Đinh Xuân Thạch
+Đối tượng phụ trách
+ITEM
+
+## Chức năng đã thực hiện
+
+### Create Item
+
+POST /api/items
+
+### Read Item
+
+GET /api/items
+
+GET /api/items/:id
+
+### Update Item
+
+PUT /api/items/:id
+
+### Delete Item
+
+DELETE /api/items/:id
+
+## Cấu trúc source code
+
+```text
+src/
+├── controllers/
+│   └── item.controller.js
+├── services/
+│   └── item.service.js
+├── repositories/
+│   └── item.repository.js
+└── routes/
+    └── item.routes.js
+```
+
+## Mô tả
+
+Đối tượng Item dùng để quản lý thông tin sản phẩm trong hệ thống Coffee Shop.
+
+Các chức năng đã triển khai:
+
+* Thêm sản phẩm mới vào hệ thống.
+* Xem danh sách sản phẩm.
+* Xem chi tiết sản phẩm theo mã sản phẩm.
+* Cập nhật thông tin sản phẩm.
+* Xóa sản phẩm khỏi hệ thống.
+
