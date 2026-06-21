@@ -34,9 +34,9 @@ Cập nhật thông tin nhân viên.
 Xóa nhân viên khỏi hệ thống.
 
 
-# Thành viên: Đinh Xuân Thạch.
-# Đối tượng phụ trách.
-# ITEM.
+ Thành viên: Đinh Xuân Thạch
+ Đối tượng phụ trách
+ ITEM
 
 ## Chức năng đã thực hiện
 
@@ -84,3 +84,53 @@ Các chức năng đã triển khai:
 * Cập nhật thông tin sản phẩm.
 * Xóa sản phẩm khỏi hệ thống.
 
+
+Thành viên: Đinh Văn Toàn
+Đối tượng phụ trách
+CUSTOMER
+
+# Chức năng đã thực hiện
+
+### Create Customer
+
+POST /api/customers
+
+### Read Customer
+
+GET /api/customers
+
+GET /api/customers/:id
+
+### Update Customer
+
+PUT /api/customers/:id
+
+### Delete Customer
+
+DELETE /api/customers/:id
+
+# Cấu trúc source code
+
+```text
+src/
+├── controllers/
+│   └── customer.controller.js
+├── services/
+│   └── customer.service.js
+├── repositories/
+│   └── customer.repository.js
+└── routes/
+    └── customer.routes.js
+```
+
+# Mô tả
+
+Đối tượng **Customer** dùng để quản lý thông tin khách hàng trong hệ thống Coffee Shop.
+
+Các chức năng đã triển khai:
+
+* Thêm khách hàng mới vào hệ thống.
+* Xem danh sách khách hàng.
+* Xem chi tiết khách hàng theo mã khách hàng.
+* Cập nhật thông tin khách hàng.
+* Xóa khách hàng khỏi hệ thống.
