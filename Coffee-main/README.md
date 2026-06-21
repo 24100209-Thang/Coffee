@@ -84,7 +84,6 @@ Các chức năng đã triển khai:
 * Cập nhật thông tin sản phẩm.
 * Xóa sản phẩm khỏi hệ thống.
 
-
 Thành viên: Đinh Văn Toàn
 Đối tượng phụ trách
 CUSTOMER
