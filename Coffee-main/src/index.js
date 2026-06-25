@@ -11,7 +11,7 @@ const employeeRoutes = require('./routes/employee.routes');
 const customerRoutes = require('./routes/customer.routes');
 const itemRoutes     = require('./routes/item.routes');
 const orderRoutes    = require('./routes/order.routes');
-
+const authRoutes   = require('./auth/auth.routes');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -25,6 +25,7 @@ app.use('/api/employees', employeeRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/items',     itemRoutes);
 app.use('/api/orders',    orderRoutes);
+app.use('/api/auth',authRoutes);
 
 // ---- Route gốc: danh sách tất cả endpoints ----
 app.get('/', (req, res) => {
