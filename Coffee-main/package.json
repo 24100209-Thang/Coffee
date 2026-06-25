@@ -12,13 +12,19 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.18.2",
+    "express-session": "^1.19.0",
     "mysql2": "^3.6.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.23",
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express-session": "^1.19.0",
     "nodemon": "^3.1.14"
   }
 }
