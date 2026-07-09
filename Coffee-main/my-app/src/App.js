@@ -1,43 +1,20 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// export default function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-function ItemList() {
-  const [items, setItems] = useState([]);
+// ----- Component hiển thị danh sách khách hàng từ database -----
+function CustomerList() {
+  const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/items')
+    fetch('http://localhost:3306/api/customers')
       .then((res) => {
         if (!res.ok) throw new Error(`Lỗi HTTP: ${res.status}`);
         return res.json();
       })
-      .then((data) => {
-        setItems(data.data || data); // tuỳ backend trả { data: [...] } hay [...] trực tiếp
+      .then((json) => {
+        setCustomers(json.data || []); // backend trả { success, count, data: [...] }
         setLoading(false);
       })
       .catch((err) => {
@@ -46,26 +23,24 @@ function ItemList() {
       });
   }, []);
 
-  if (loading) return <p>Đang tải dữ liệu...</p>;
-  if (error) return <p>Lỗi: {error}</p>;
+  if (loading) return <p>Đang tải dữ liệu khách hàng...</p>;
+  if (error) return <p style={{ color: 'red' }}>Lỗi: {error}</p>;
 
   return (
-    <table border="1" cellPadding="8" style={{ margin: '20px auto', borderCollapse: 'collapse' }}>
+    <table className="table" style={{ width: '100%', borderCollapse: 'collapse' }}>
       <thead>
-        <tr>
-          <th>Mã SP</th>
-          <th>Tên</th>
-          <th>Loại</th>
-          <th>Giá</th>
+        <tr style={{ background: '#f5f5f5', textAlign: 'left' }}>
+          <th style={{ padding: '10px', borderBottom: '2px solid #ddd' }}>Name</th>
+          <th style={{ padding: '10px', borderBottom: '2px solid #ddd' }}>ID</th>
+          <th style={{ padding: '10px', borderBottom: '2px solid #ddd' }}>Status</th>
         </tr>
       </thead>
       <tbody>
-        {items.map((item) => (
-          <tr key={item.ITEM_ID}>
-            <td>{item.ITEM_ID}</td>
-            <td>{item.NAME}</td>
-            <td>{item.TYPE}</td>
-            <td>{item.PRICE}</td>
+        {customers.map((c) => (
+          <tr key={c.CUSTOMER_ID} style={{ borderBottom: '1px solid #eee' }}>
+            <td style={{ padding: '10px' }}>{c.CUSTOMER_NAME}</td>
+            <td style={{ padding: '10px' }}>{c.CUSTOMER_ID}</td>
+            <td style={{ padding: '10px' }}>{c.EMP_ID ? 'Active' : 'Unassigned'}</td>
           </tr>
         ))}
       </tbody>
@@ -73,15 +48,11 @@ function ItemList() {
   );
 }
 
-function GoogleClone() {
-  // ... giữ nguyên toàn bộ code GoogleClone hiện tại của bạn ...
-}
-
 function App() {
   return (
-    <div>
-      <GoogleClone />
-      <ItemList />
+    <div style={{ maxWidth: '900px', margin: '40px auto', fontFamily: 'sans-serif' }}>
+      <h2>Danh sách khách hàng</h2>
+      <CustomerList />
     </div>
   );
 }
