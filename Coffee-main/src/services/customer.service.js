@@ -38,7 +38,7 @@ const CustomerService = {
 
   // Cập nhật khách hàng
   async update(id, data) {
-    const { CUSTOMER_NAME, PHONE, EMP_ID } = data;
+    const { CUSTOMER_NAME, PHONE, EMP_ID, STATUS } = data;
     // Kiểm tra tồn tại
     await CustomerService.getById(id);
 
@@ -47,8 +47,10 @@ const CustomerService = {
       const emp = await EmployeeRepository.findById(EMP_ID);
       if (!emp) throw { status: 400, message: `EMP_ID "${EMP_ID}" không tồn tại` };
     }
-
-    await CustomerRepository.update(id, { CUSTOMER_NAME, PHONE, EMP_ID });
+    if (STATUS && !['ACTIVE', 'INACTIVE'].includes(STATUS)) {
+      throw { status: 400, message: `STATUS phải là 'ACTIVE' hoặc 'INACTIVE'` };
+    }
+    await CustomerRepository.update(id, { CUSTOMER_NAME, PHONE, EMP_ID, STATUS });
     return await CustomerRepository.findById(id);
   },
 

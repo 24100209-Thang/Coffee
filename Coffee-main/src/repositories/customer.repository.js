@@ -28,19 +28,19 @@ const CustomerRepository = {
   },
 
   // [CREATE] Thêm khách hàng mới
-  async create({ CUSTOMER_ID, CUSTOMER_NAME, PHONE, EMP_ID }) {
+  async create({ CUSTOMER_ID, CUSTOMER_NAME, PHONE, EMP_ID, STATUS }) {
     const [result] = await pool.query(
-      'INSERT INTO CUSTOMER (CUSTOMER_ID, CUSTOMER_NAME, PHONE, EMP_ID) VALUES (?, ?, ?, ?)',
-      [CUSTOMER_ID, CUSTOMER_NAME, PHONE, EMP_ID || null]
+      'INSERT INTO CUSTOMER (CUSTOMER_ID, CUSTOMER_NAME, PHONE, EMP_ID, STATUS) VALUES (?, ?, ?, ?,?)',
+      [CUSTOMER_ID, CUSTOMER_NAME, PHONE, EMP_ID || null, STATUS || 'ACTIVE']
     );
     return result;
   },
 
   // [UPDATE] Cập nhật thông tin khách hàng
-  async update(id, { CUSTOMER_NAME, PHONE, EMP_ID }) {
+  async update(id, { CUSTOMER_NAME, PHONE, EMP_ID, STATUS }) {
     const [result] = await pool.query(
-      'UPDATE CUSTOMER SET CUSTOMER_NAME = ?, PHONE = ?, EMP_ID = ? WHERE CUSTOMER_ID = ?',
-      [CUSTOMER_NAME, PHONE, EMP_ID || null, id]
+      'UPDATE CUSTOMER SET CUSTOMER_NAME = ?, PHONE = ?, EMP_ID = ?, STATUS = ? WHERE CUSTOMER_ID = ?',
+      [CUSTOMER_NAME, PHONE, EMP_ID || null, STATUS || 'ACTIVE', id]
     );
     return result;
   },

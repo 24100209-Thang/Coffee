@@ -8,7 +8,7 @@ function CustomerList() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3306/api/customers')
+    fetch('http://localhost:4000/api/customers')
       .then((res) => {
         if (!res.ok) throw new Error(`Lỗi HTTP: ${res.status}`);
         return res.json();
@@ -40,7 +40,7 @@ function CustomerList() {
           <tr key={c.CUSTOMER_ID} style={{ borderBottom: '1px solid #eee' }}>
             <td style={{ padding: '10px' }}>{c.CUSTOMER_NAME}</td>
             <td style={{ padding: '10px' }}>{c.CUSTOMER_ID}</td>
-            <td style={{ padding: '10px' }}>{c.EMP_ID ? 'Active' : 'Unassigned'}</td>
+            <td style={{ padding: '10px' }}>{c.STATUS}</td>
           </tr>
         ))}
       </tbody>
