@@ -3,32 +3,14 @@ const userRepository = require('../repositories/user.repository');
 
 class AuthService {
 
-    async register(username, password, role) {
+    async register(username, password, role){
+        const existingUser = await userRepository.findByUssername(username);
+        if(existingUser) throw new Error("Username da ton tai");
 
-        const existingUser =
-            await userRepository.findByUsername(username);
+        const passwordHash = await bcrypt.hash(password, 10);
+        const userId = await userRepository.createUser(username, passwordHash, 'customer');
 
-        if (existingUser) {
-            throw new Error(
-                'Username đã tồn tại'
-            );
-        }
-
-        const passwordHash =
-            await bcrypt.hash(password, 10);
-
-        const userId =
-            await userRepository.createUser(
-                username,
-                passwordHash,
-                role
-            );
-
-        return {
-            userId,
-            username,
-            role
-        };
+        return {userId, username, role};
     }
 }
 

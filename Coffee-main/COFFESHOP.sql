@@ -69,7 +69,13 @@ CREATE TABLE CUSTOMER_ORDER (
         ON DELETE SET NULL
         ON UPDATE CASCADE
 );
-
+CREATE TABLE User (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(100) NOT NULL UNIQUE,
+    PasswordHash VARCHAR(255) NOT NULL,
+    Role ENUM('ADMIN','EMPLOYEE','CUSTOMER') DEFAULT 'CUSTOMER',
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 -- =============================================
 -- DỮ LIỆU MẪU
 -- =============================================
